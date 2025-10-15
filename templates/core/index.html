@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<header class="px6 py-10 lg:py-20 bg-red-900">
+    <div class="max-w-3xl mx-auto text-center">
+        <p class="mb-2 text-3xl lg:text-5xl text-white">
+            Welcome to TheShop
+        </p>
+        <p class="mb-10 text-white">
+            We sell provisions, drinks and everthing household
+        </p>
+        <a href="#" class="inline-block py-4 px-6 rounded-xl bg-white text-red-500 hover:bg-gray-200">Start Shopping</a>
+    </div>
+
+</header>
+
+<div class="mx-auto max-w-3xl py-8 px-6 xl:px-0 mt-8 shadow-2xl bg-white rounded-xl">
+    <!-- Category Dropdown -->
+    <div class="mb-6 flex justify-end">
+        <select class="py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-900 bg-white text-gray-700">
+            <option value="">All Categories</option>
+            <option value="1">Food</option>
+            <option value="2">Drinks</option>
+            <option value="3">Household</option>
+        </select>
+    </div>
+    <div class="products flex flex-wrap gap-6 justify-center">
+        {% for product in products %}
+            {% include 'store/components/product_list.html' %}
+        {% endfor %}
+    </div>
+    <!-- Pagination -->
+    <div class="mt-8 flex justify-center">
+        <nav class="inline-flex rounded-xl shadow-sm overflow-hidden bg-gray-100">
+            <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">1</a>
+            <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">2</a>
+            <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">3</a>
+            <span class="py-2 px-4 text-gray-400">...</span>
+            <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">Next</a>
+        </nav>
+    </div>
+</div>
+
+
+
+{% endblock %}

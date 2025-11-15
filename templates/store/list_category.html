@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto flex flex-wrap items-start py-6 px-6 xl:px-0">
+    <div class="filters w-full lg:w-1/4">
+        <h2 class="mb-3 text-xl uppercase">Search</h2>
+
+        <form action="{% url 'search' %}" method="get">
+            <div class="flex">
+                <input type="text" name="q" class="p-4 bg-gray-100 border-0 rounded-xl" placeholder="Search..........." value="{{ request.GET.q|default:'' }}">
+
+                <button class="p-4 bg-gray-100 border-0 rounded-xl" type="submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <!-- Loading overlay -->
+        <div id="loading-overlay" class="hidden fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center">
+            <div class="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" role="status" aria-label="Loading"></div>
+        </div>
+
+
+        <h3 class="mt-6 mb-3 text-xl uppercase">
+            Categories
+        </h3>
+
+        <ul class="space-y-4">
+            <li>
+                <a href="{% url 'home' %}" class="{% if not current_category %}text-red-700{% else %}text-gray-500{% endif %}">
+                    All Categories
+                </a>
+            </li>
+            {% for category in all_category %}
+                <li>
+                    <a href="{{ category.get_absolute_url }}" class="{% if current_category and category.id == current_category.id %}text-red-700{% else %}text-gray-500{% endif %}">
+                        {{ category.name|capfirst }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="products w-full lg:w-3/4 -mt-4 flex items-start flex-wrap gap-6">
+        {% for product in products %}
+            {% include 'store/components/product_list.html' %}
+        {% empty %}
+            <div class="w-full text-center py-12 text-gray-500">
+                {% if message %}
+                <p class="text-center text-gray-500 w-full">{{ message }}</p>
+                {% endif %}
+
+                select category
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!--=========================== AJAX Search (matches the search form above) ============================= -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.querySelector("input[name='q']");
+    const resultsContainer = document.querySelector(".products");
+    const overlay = document.getElementById("loading-overlay");
+    if (!input || !resultsContainer) return;
+
+    // Debounce to avoid too many requests
+    let debounceTimer = null;
+    input.addEventListener("input", function () {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(async () => {
+            const form = input.form;
+            if (!form) return;
+            const query = input.value;
+
+            // show overlay (remove Tailwind 'hidden' if present)
+            if (overlay) overlay.classList.remove("hidden");
+
+            try {
+                const url = form.action + "?q=" + encodeURIComponent(query);
+                const res = await fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } });
+                const html = await res.text();
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+
+                // The template renders products into the .products container.
+                // Try to extract .products from the response and replace current contents.
+                const newProducts = doc.querySelector(".products");
+                if (newProducts) {
+                    resultsContainer.innerHTML = newProducts.innerHTML;
+                } else {
+                    // Fallback: if the response uses an element with id="results"
+                    const fallback = doc.querySelector("#results");
+                    if (fallback) resultsContainer.innerHTML = fallback.innerHTML;
+                }
+            } catch (err) {
+                console.error("Search request failed:", err);
+            } finally {
+                if (overlay) overlay.classList.add("hidden");
+            }
+        }, 300);
+    });
+
+    // Show overlay on normal form submits as well
+    const forms = document.querySelectorAll("form");
+    forms.forEach(form => {
+        form.addEventListener("submit", function () {
+            if (overlay) overlay.classList.remove("hidden");
+        });
+    });
+});
+</script>
+<!--=========================== End of AJAX Search ============================= -->
+
+<!--=========================== End of Loading overlay============================= -->
+
+
+{% endblock %}

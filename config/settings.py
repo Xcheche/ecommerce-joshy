@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages_constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,7 +47,8 @@ PROJECT_APPS = [
 ]
 #Thirdparty apps
 THIRD_PARTY_APPS = [
-    #third party apps
+    # third party apps
+    "widget_tweaks",
 ]
 INSTALLED_APPS= DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS 
 
@@ -67,14 +69,15 @@ ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": ["templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "store.views.category",
             ],
         },
     },
@@ -125,6 +128,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+#-----------------Login redirect settings-----------------
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL ='home'
+LOGOUT_REDIRECT_URL ='home'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -139,7 +146,39 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+#-----------------Django Messages Framework-----------------
+
+MESSAGE_TAGS = {
+    messages_constants.DEBUG: 'debug',
+    messages_constants.INFO: 'info',
+    messages_constants.SUCCESS: 'success',
+    messages_constants.WARNING: 'warning',
+    messages_constants.ERROR: 'danger',  # Bootstrap class for error
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = [
+    "accounts.auth_backends.EmailOrUsernameBackend",  # our custom one
+    "django.contrib.auth.backends.ModelBackend",  # keep as fallback (perms, etc.)
+]
+
+
+# settings.py
+DEFAULT_FROM_EMAIL = "Support <support@yourdomain.com>"
+
+# Dev (prints emails to console)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Mailpit (local SMTP testing)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "localhost"
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+# Mailpit web UI: http://localhost:8025

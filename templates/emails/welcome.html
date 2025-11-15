@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Welcome to TheShop</title>
+</head>
+
+<body style="margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;background:#f3f4f6;">
+
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+            <td align="center" style="padding:24px 12px;">
+                <table role="presentation" cellpadding="0" cellspacing="0" width="600"
+                    style="max-width:600px;border-radius:8px;overflow:hidden;background:#ffffff;">
+                    <!-- Header -->
+                    <tr>
+                        <td style="background:#ef4444;padding:18px 24px;text-align:left;color:#ffffff;">
+                            <h1 style="margin:0;font-size:20px;line-height:1;font-weight:600;">TheShop</h1>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding:24px;color:#111827;">
+                            <h2 style="margin:0 0 12px 0;font-size:18px;line-height:1.2;font-weight:600;">Welcome to TheShop</h2>
+                            <p style="margin:0 0 12px 0;">Hello {{ user.email }},</p>
+                            <p style="margin:0 0 12px 0;">We're excited to have you on board. Your account is ready — explore our store and enjoy.</p>
+                            <p style="margin:0 0 0 0;">Best regards,<br>The Team</p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background:#ef4444;padding:14px 20px;color:#ffffff;text-align:center;font-size:13px;">
+                            <div style="max-width:520px;margin:0 auto;">
+                                <strong>TheShop</strong> — Local shop serving your needs.
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <p style="margin:12px 0 0;font-size:12px;color:#9ca3af;">
+                    © {{ now.year }} TheShop. All rights reserved.
+                </p>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

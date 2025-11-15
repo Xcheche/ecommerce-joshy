@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto p-6 w-full-3/3 bg-white rounded-xl shadow-md">
+
+    <h1 class="mb-6 text-3xl">
+        Edit account
+    </h1>
+
+    <form class="w-full-3/3" method="post" action="{% url 'edit_profile' %}" class="space-y-3">
+        {% csrf_token %}
+        <div>
+            <label>Username</label>
+            {{ user_form.username|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <label>First Name</label>
+            {{ user_form.first_name|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <label>Last Name</label>
+            {{ user_form.last_name|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <label>E-mail</label>
+            {{ user_form.email|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <label>Address</label>
+            {{ profile_form.address|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <label>Phone No</label>
+            {{ user_form.phone_no|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+        </div>
+        <div>
+            <button class="py-4 rounded-xl px-6 text-white bg-red-500 hover:bg-red-700">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+
+{% endblock %}

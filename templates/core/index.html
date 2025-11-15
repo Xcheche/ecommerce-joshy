@@ -11,28 +11,32 @@
         <p class="mb-10 text-white">
             We sell provisions, drinks and everthing household
         </p>
-        <a href="#" class="inline-block py-4 px-6 rounded-xl bg-white text-red-500 hover:bg-gray-200">Start Shopping</a>
+        <a href="{% url 'list_category' category_slug='all' %}" class="inline-block py-4 px-6 rounded-xl bg-white text-red-500 hover:bg-gray-200">Start Shopping</a>
     </div>
 
 </header>
 
 <div class="mx-auto max-w-3xl py-8 px-6 xl:px-0 mt-8 shadow-2xl bg-white rounded-xl">
     <!-- Category Dropdown -->
-    <div class="mb-6 flex justify-end">
-        <select class="py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-900 bg-white text-gray-700">
-            <option value="">All Categories</option>
-            <option value="1">Food</option>
-            <option value="2">Drinks</option>
-            <option value="3">Household</option>
+    <!-- <div class="mb-6 flex justify-end">
+        <select id="category-select"
+            class="py-2 px-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-900 bg-white text-gray-700"
+            onchange="if(this.value){ location.href=this.value; }">
+            <option value="{% url 'home' %}">All Categories</option>
+            {% for category in all_category %}
+            <option value="{{ category.get_absolute_url }}">{{ category.name|capfirst }}</option>
+            {% endfor %}
         </select>
-    </div>
+      
+    </div> -->
+    <h1 class="text-2xl font-bold mb-4 flex flex-wrap gap-6 justify-center">Featured Products</h1>
     <div class="products flex flex-wrap gap-6 justify-center">
         {% for product in products %}
             {% include 'store/components/product_list.html' %}
         {% endfor %}
     </div>
     <!-- Pagination -->
-    <div class="mt-8 flex justify-center">
+    <!-- <div class="mt-8 flex justify-center">
         <nav class="inline-flex rounded-xl shadow-sm overflow-hidden bg-gray-100">
             <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">1</a>
             <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">2</a>
@@ -40,7 +44,7 @@
             <span class="py-2 px-4 text-gray-400">...</span>
             <a href="#" class="py-2 px-4 text-gray-700 hover:bg-red-900 hover:text-white transition">Next</a>
         </nav>
-    </div>
+    </div> -->
 </div>
 
 

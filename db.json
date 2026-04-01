@@ -1,0 +1,1018 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-10-15T12:30:44.025Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Beverages",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-10-15T12:31:14.489Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Drinks",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-10-15T12:32:15.968Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Milo",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-10-15T12:32:49.591Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Peak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-10-15T12:40:26.906Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Peak",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-10-15T12:40:39.283Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Milo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-10-15T12:42:57.167Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Peak",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-10-15T12:43:09.157Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Milo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-10-15T13:02:41.679Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Bournvita",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-10-15T13:03:03.685Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Beer",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-10-15T13:29:09.426Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Beer",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-10-15T13:29:09.430Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Bournvita",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Stock\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-10-15T13:29:19.155Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Beer",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-10-15T13:30:18.958Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Milo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Is available\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-11-12T06:55:05.355Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Cowbell",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-11-12T06:55:26.216Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "SUgar",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-11-12T06:55:46.722Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Sugar",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-11-13T14:27:20.932Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-11-13T14:33:49.448Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "test@gmail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-11-13T14:33:49.448Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "test@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-11-13T14:39:48.900Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "test@gmail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-11-13T14:52:24.995Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "6",
+    "object_repr": "test@gmail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-11-13T15:33:59.945Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "checheomenife@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"password\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-11-13T16:26:13.514Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "1",
+    "object_repr": "checheomenife@gmail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"Phone no\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-11-13T17:44:50.918Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "7",
+    "object_repr": "test@gmail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-11-13T17:52:16.385Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "8",
+    "object_repr": "test@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-11-13T17:59:27.015Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "9",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-11-13T20:27:17.945Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "10",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-11-13T21:43:03.336Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "11",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-11-13T21:49:58.039Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "max@mail.com",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-11-14T09:53:30.017Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "12",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-11-14T09:59:22.332Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "13",
+    "object_repr": "max@mail.com",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 6,
+    "codename": "add_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 6,
+    "codename": "change_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 6,
+    "codename": "delete_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 6,
+    "codename": "view_customuser"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add product",
+    "content_type": 7,
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change product",
+    "content_type": 7,
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete product",
+    "content_type": 7,
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view product",
+    "content_type": 7,
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 8,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add user profile",
+    "content_type": 9,
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change user profile",
+    "content_type": 9,
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete user profile",
+    "content_type": 9,
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view user profile",
+    "content_type": 9,
+    "codename": "view_userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "accounts",
+    "model": "customuser"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "store",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "store",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "accounts",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2ucvbybo9crqo7j4exky7n2vjs4rnhgx",
+  "fields": {
+    "session_data": ".eJxVjD0LwjAUAP9LZinNy8uXo-Ds5BxeXxJStBWaZhL_u1U66Hp33FMEamsJraYljFEchURx-IUD8S3NH0PMjzavtfvKndfuPNF4vyzXLZ5pSqe9_5sUqmU7oDYWlVKWc_RsfXauJ-O9hMHYyGQhg-Ue0KGLYCAiSqe1oQyKWKN4vQEVpDj1:1vJqbL:v0ygHVmzYi2w1EpBGYNmGQrae4synRD6fPBR5kSiXv4",
+    "expire_date": "2025-11-28T10:00:19.338Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gf9u9yvcd4mry9rnrr3vkn0u4ctii2cx",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCHMim4dO8ZCMwMUjWQlHbVeHdt0oVu_3vvbyrEdSlh7TKHidVFgTr9binSU-oO-BHrvWlqdZmnpHdFH7TrW2N5XQ_376DEXr61ITBDFrYGxAsYJnF-ZAQ6I0FGCzYlRgeeHYpFziablMdsBWnAQb0_7HI4NQ:1v90dl:rn2wmC-OrRdq28nVTE1-RaEdlRcAXWCd2srrVQgk95A",
+    "expire_date": "2025-10-29T12:30:01.218Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "l7wjasceklvnb8gb1at4s4apxtv48n6s",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCHMim4dO8ZCMwMUjWQlHbVeHdt0oVu_3vvbyrEdSlh7TKHidVFgTr9binSU-oO-BHrvWlqdZmnpHdFH7TrW2N5XQ_376DEXr61ITBDFrYGxAsYJnF-ZAQ6I0FGCzYlRgeeHYpFziablMdsBWnAQb0_7HI4NQ:1vJ3o2:24f9jNFX-v3qPWlWxc88-4e2VMwkXga5_DUOLvrDYU0",
+    "expire_date": "2025-11-26T05:54:10.457Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t2addhn8bz1haxehxita87hih3zxxdi5",
+  "fields": {
+    "session_data": "e30:1vJara:al0OQqz-Ii4biDafOwp7wokGx0t5-Y_G07oqq6b3kvU",
+    "expire_date": "2025-11-27T17:12:02.625Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x68kbge2vrcbfxf1kcounhb13gi4whf7",
+  "fields": {
+    "session_data": "e30:1vJbVH:xiMxLtbLP2vEwWaChrKu7YNQa5cMF2dPNsPAoUMkmIQ",
+    "expire_date": "2025-11-27T17:53:03.822Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 1,
+  "fields": {
+    "name": "Beverages",
+    "slug": "beverages"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 2,
+  "fields": {
+    "name": "Drinks",
+    "slug": "drinks"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "Milo",
+    "slug": "milo",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium impedit culpa ratione ab, molestiae officiis aliquam molestias odit provident sed!",
+    "price": "1000.00",
+    "image": "uploads/milo.png",
+    "stock": 0,
+    "is_available": false,
+    "created_at": "2025-10-15T12:32:15.967Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "Peak",
+    "slug": "peak",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium impedit culpa ratione ab, molestiae officiis aliquam molestias odit provident sed!",
+    "price": "5000.00",
+    "image": "uploads/peak.png",
+    "stock": 0,
+    "is_available": true,
+    "created_at": "2025-10-15T12:32:49.589Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "Bournvita",
+    "slug": "bournvita",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore placeat dolore provident atque voluptatibus? Excepturi eligendi doloribus aperiam labore obcaecati odio porro itaque quis, in est numquam a architecto temporibus!",
+    "price": "6000.00",
+    "image": "uploads/bournvita.png",
+    "stock": 2,
+    "is_available": true,
+    "created_at": "2025-10-15T13:02:41.678Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 4,
+  "fields": {
+    "category": 2,
+    "name": "Beer",
+    "slug": "beer",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore placeat dolore provident atque voluptatibus? Excepturi eligendi doloribus aperiam labore obcaecati odio porro itaque quis, in est numquam a architecto temporibus!",
+    "price": "5600.00",
+    "image": "uploads/beer.png",
+    "stock": 3,
+    "is_available": true,
+    "created_at": "2025-10-15T13:03:03.682Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 5,
+  "fields": {
+    "category": 1,
+    "name": "Cowbell",
+    "slug": "cowbell",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis aut necessitatibus ducimus dicta enim optio labore error possimus magni temporibus!",
+    "price": "1000.00",
+    "image": "uploads/cowbell.jpeg",
+    "stock": 2,
+    "is_available": true,
+    "created_at": "2025-11-12T06:55:05.353Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 6,
+  "fields": {
+    "category": 1,
+    "name": "Sugar",
+    "slug": "sugar",
+    "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis aut necessitatibus ducimus dicta enim optio labore error possimus magni temporibus!",
+    "price": "5000.00",
+    "image": "uploads/sugar.jpeg",
+    "stock": 1,
+    "is_available": true,
+    "created_at": "2025-11-12T06:55:26.214Z"
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$VW3WBs3MY6dGqa9b80wakX$P38j4+6qxKwJLEROuawK6s3YovJ+ujOGo61KUwe4Afs=",
+    "last_login": "2025-11-14T09:56:22.659Z",
+    "is_superuser": true,
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-10-15T12:29:51Z",
+    "username": "cheche",
+    "email": "checheomenife@gmail.com",
+    "first_name": "Chukwuebuka Chekwubechukwu",
+    "last_name": "Omenife",
+    "phone_no": "070481673377",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.customuser",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$1QOiEpbXeyZSdefsxmTSdr$SMA2EkA8SSkBt6s+nQ0Zv6EBnCTEwiVT54lqpb61MXA=",
+    "last_login": "2025-11-14T10:00:19.320Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-14T10:00:11.567Z",
+    "username": "mark",
+    "email": "max@mail.com",
+    "first_name": "Mark",
+    "last_name": "Dan",
+    "phone_no": "07048706775",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "address": "Brains and hammers Estate",
+    "created_at": "2025-11-13T17:08:47.892Z",
+    "updated_at": "2025-11-13T17:09:48.034Z"
+  }
+},
+{
+  "model": "accounts.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": 14,
+    "address": null,
+    "created_at": "2025-11-14T10:00:19.269Z",
+    "updated_at": "2025-11-14T10:00:19.269Z"
+  }
+}
+]

@@ -1,6 +1,14 @@
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template, render_to_string
 from django.utils.html import strip_tags
+from typing import List
+
+"""Email helper tasks.
+
+Feature map:
+- `send_email`: reusable HTML + plain-text email sender (threaded).
+- `send_welcome_emails`: sends both customer welcome and owner notification.
+"""
 
 
 from django.conf import settings
@@ -9,7 +17,9 @@ from common.utils.thread_email import EmailThread
 
 
 #-----------------------Generalized Email Helper Function for all html multialternativeemails-----------------------#
-def send_email(subject: str, email_to: list[str], html_template, context):
+def send_email(subject: str, email_to: List[str], html_template, context):
+    """Render HTML template email and send asynchronously using `EmailThread`."""
+
     html_template = get_template(html_template)
     html_content = html_template.render(context)
 

@@ -20,8 +20,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    # Django admin panel.
     path('admin/', admin.site.urls),
+    # Storefront (home, products, category pages, search).
     path('',include('store.urls')),
+    # Account lifecycle (register, activate, login/logout, profile pages).
     path('accounts/',include('accounts.urls'))
 ]
 

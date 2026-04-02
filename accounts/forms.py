@@ -1,4 +1,11 @@
-# accounts/forms.py
+"""Forms used by the accounts feature set.
+
+Feature map:
+- `RegisterForm`: handles sign-up with custom validation and normalized fields.
+- `CustomUserUpdateForm`: edits fields stored on `CustomUser`.
+- `ProfileUpdateForm`: edits extended profile fields on `UserProfile`.
+"""
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
@@ -7,6 +14,14 @@ from accounts.models import CustomUser, UserProfile
 
 #-------------Registration Form-----------------
 class RegisterForm(UserCreationForm):
+    """Registration form tailored for `CustomUser`.
+
+    Notes:
+    - Email is required and unique.
+    - Username is optional in this project.
+    - Phone is optional.
+    - `save()` normalizes/assigns custom fields.
+    """
     # Make username optional (since USERNAME_FIELD is email)
     username = forms.CharField(required=False)
     email = forms.EmailField(
@@ -81,6 +96,8 @@ class RegisterForm(UserCreationForm):
 
 
 class CustomUserUpdateForm(forms.ModelForm):
+    """Update form for account fields stored directly on `CustomUser`."""
+
     class Meta:
         model =CustomUser
         # You can add other fields from CustomUser here
@@ -89,6 +106,8 @@ class CustomUserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    """Update form for extended profile fields stored on `UserProfile`."""
+
     # This form handles the country and city fields
     # You might want to override the city field to make it a simple ChoiceField
     # for the initial form render before JavaScript takes over.

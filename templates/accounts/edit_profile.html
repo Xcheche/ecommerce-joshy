@@ -5,43 +5,45 @@
 
 {% block content %}
 
-<div class="max-w-6xl mx-auto p-6 w-full-3/3 bg-white rounded-xl shadow-md">
+<div class="max-w-4xl mx-auto p-6 pt-12">
+    <div class="bg-white rounded-3xl shadow-xl border border-slate-200 p-6 sm:p-8">
 
-    <h1 class="mb-6 text-3xl">
+    <h1 class="mb-6 text-3xl font-extrabold text-slate-800">
         Edit account
     </h1>
 
-    <form class="w-full-3/3" method="post" action="{% url 'edit_profile' %}" class="space-y-3">
+    <form method="post" action="{% url 'edit_profile' %}" class="space-y-4">
         {% csrf_token %}
         <div>
-            <label>Username</label>
-            {{ user_form.username|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">Username</label>
+            {{ user_form.username|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <label>First Name</label>
-            {{ user_form.first_name|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">First Name</label>
+            {{ user_form.first_name|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <label>Last Name</label>
-            {{ user_form.last_name|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">Last Name</label>
+            {{ user_form.last_name|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <label>E-mail</label>
-            {{ user_form.email|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">E-mail</label>
+            {{ user_form.email|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <label>Address</label>
-            {{ profile_form.address|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">Address</label>
+            {{ profile_form.address|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <label>Phone No</label>
-            {{ user_form.phone_no|add_class:"w-full mt-2 py-4 px-6 bg-gray-100 rounded-xl" }}
+            <label class="text-sm font-medium text-slate-700">Phone No</label>
+            {{ user_form.phone_no|add_class:"w-full mt-2 py-3 px-4 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-400" }}
         </div>
         <div>
-            <button class="py-4 rounded-xl px-6 text-white bg-red-500 hover:bg-red-700">Submit</button>
+            <button class="w-full py-3 rounded-xl px-6 text-white font-semibold bg-red-600 hover:bg-red-700 transition">Save Changes</button>
         </div>
     </form>
 
+</div>
 </div>
 
 

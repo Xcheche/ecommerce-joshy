@@ -1,4 +1,10 @@
-# core/auth_backends.py
+"""Custom authentication backends and auth-related helpers for the accounts app.
+
+Feature map:
+- `EmailOrUsernameBackend`: lets users sign in with email or username.
+- `create_profile`: utility hook to guarantee a profile exists for a user.
+"""
+
 from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth import get_user_model
 from django.db.models import Q
@@ -12,8 +18,16 @@ from common.tasks import send_welcome_emails
 
 class EmailOrUsernameBackend(ModelBackend):
     """
-    Authenticate with either email (primary, since USERNAME_FIELD='email')
-    or username. Case-insensitive match. Respects is_active via user_can_authenticate().
+    Authenticate with either email or username.
+
+    Why this exists:
+    - Your `CustomUser` uses `email` as `USERNAME_FIELD`.
+    - Many users still try to sign in with a username.
+
+    Behavior:
+    - Case-insensitive lookup on both email and username.
+    - Password must match.
+    - Inactive users are blocked by `user_can_authenticate`.
     """
 
     def authenticate(self, request, username=None, password=None, **kwargs):
@@ -38,6 +52,12 @@ class EmailOrUsernameBackend(ModelBackend):
 
 
 def create_profile(_backend, user, *_args, **_kwargs):
+    """Create a `UserProfile` if missing.
+
+    Intended usage:
+    - Safe helper for signal/social-auth style hooks.
+    - Ensures dashboard/profile pages always have profile data.
+    """
     if user:  # Ensure user exists
         try:
             with transaction.atomic():

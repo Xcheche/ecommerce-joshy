@@ -4,17 +4,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <title>{% block title %}TheShop{% endblock %}</title>
+        <style>
+            body {
+                font-family: 'Manrope', sans-serif;
+                background: radial-gradient(circle at top right, #ffe8dc 0%, #fff9f5 40%, #fff 75%);
+            }
+
+            .app-shell {
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
     </head>
 
-    <body>
+    <body class="text-slate-800 min-h-screen flex flex-col">
         <!--Django Messages-->
         {% if messages %}
         <div class="fixed top-4 right-4 z-50 space-y-2">
             {% for message in messages %}
-            <div class="px-6 py-4 rounded-xl text-white
+            <div class="px-5 py-3 rounded-xl text-white shadow-lg border border-white/20 backdrop-blur-sm
                 {% if message.tags == 'error' %} bg-red-500
                 {% elif message.tags == 'success' %} bg-green-500
                 {% elif message.tags == 'warning' %} bg-yellow-500
@@ -36,74 +51,171 @@
 
 
         <!--Navigation-->
-        <nav class="border-b bg-red-500 border-gray-300">
-            <div class="max-w-6xl mx-auto py-2 bg-red-500 px-6 xl:px-0 flex items-center justify-between">
-                <div class="menu-left flex items-center space-x-6">
-                    <a href="{% url 'home' %}" class="py-4 text-lg text-white-500 font-semibold hover:bg-gray-200 px-4 py-4 rounded-xl">TheShop</a>
+        <nav class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-md shadow-sm">
+            <div class="app-shell px-4 sm:px-6 xl:px-0 py-3 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3 sm:gap-5">
+                    <a href="{% url 'home' %}" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 hover:bg-slate-100 transition">
+                        <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-red-600 to-red-500 text-white font-extrabold">T</span>
+                        <span class="text-slate-900 font-extrabold tracking-tight text-lg">TheShop</span>
+                    </a>
 
-                    <ul class="flex items-center space-x-4">
+                    <ul class="hidden sm:flex items-center gap-1 text-sm sm:text-base">
                         <li>
-                            <a href="{% url 'home' %}" class="hover:bg-gray-200 px-2 py-2 rounded-xl {% if request.resolver_match.url_name == 'home' %}bg-gray-200 text-gray-900{% endif %}">
+                            <a href="{% url 'home' %}" class="inline-flex items-center rounded-lg px-4 py-2 font-semibold transition {% if request.resolver_match.url_name == 'home' %}bg-slate-900 text-white{% else %}text-slate-700 hover:bg-slate-100{% endif %}">
                                 Home
                             </a>
                         </li>
-                        <li><a href="#" class="hover:bg-gray-200 px-2 py-2 rounded-xl">About</a></li>
-
-                      {% if request.user.is_authenticated %}
-                            <li><a href="{% url 'logout' %}" class="hover:bg-gray-200 px-2 py-2 rounded-xl">Log out</a></li>
-                        {% else %}
-                            <li><a href="{% url 'login' %}" class="hover:bg-gray-200 px-2 py-2 rounded-xl">Log in</a></li>
-                            <li><a href="{% url 'register' %}" class="hover:bg-gray-200 px-2 py-2 rounded-xl">Create account</a></li>
-                       {% endif %}
+                        <li>
+                            <a href="{% url 'products' %}" class="inline-flex items-center rounded-lg px-4 py-2 font-semibold transition {% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'list_category' %}bg-slate-900 text-white{% else %}text-slate-700 hover:bg-slate-100{% endif %}">
+                                Shop
+                            </a>
+                        </li>
+                    </ul>
                 </div>
 
-
-                <div class="menu-right flex items-center space-x-4">
+                <div class="hidden sm:flex items-center gap-2 sm:gap-3">
                     {% if request.user.is_authenticated %}
-                    <a href="{% url 'profile' %}" class="text-white hover:bg-gray-200 px-4 py-4 rounded-xl flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <a href="{% url 'profile' %}" class="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-slate-700 hover:bg-slate-100 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
+                        <span class="hidden sm:inline font-semibold">Profile</span>
                     </a>
+                    <a href="{% url 'logout' %}" class="inline-flex items-center rounded-lg px-4 py-2 text-slate-700 font-semibold hover:bg-slate-100 transition">Log out</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="inline-flex items-center rounded-lg px-4 py-2 text-slate-700 font-semibold hover:bg-slate-100 transition">Log in</a>
+                    <a href="{% url 'register' %}" class="inline-flex items-center rounded-lg px-4 py-2 bg-red-600 text-white font-semibold hover:bg-red-700 transition shadow-sm">Create account</a>
                     {% endif %}
-                    <div>
-                     
-                    </div>
-                    
                 </div>
+
+                <button id="mobile-menu-button" class="sm:hidden inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="sm:hidden hidden border-t border-slate-200 px-4 pb-4 pt-2">
+                <ul class="space-y-1 text-sm">
+                    <li>
+                        <a href="{% url 'home' %}" class="block rounded-lg px-3 py-2 font-semibold transition {% if request.resolver_match.url_name == 'home' %}bg-slate-900 text-white{% else %}text-slate-700 hover:bg-slate-100{% endif %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'products' %}" class="block rounded-lg px-3 py-2 font-semibold transition {% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'list_category' %}bg-slate-900 text-white{% else %}text-slate-700 hover:bg-slate-100{% endif %}">Shop</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'profile' %}" class="block rounded-lg px-3 py-2 font-semibold text-slate-700 hover:bg-slate-100 transition">Profile</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}" class="block rounded-lg px-3 py-2 font-semibold text-slate-700 hover:bg-slate-100 transition">Log out</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{% url 'login' %}" class="block rounded-lg px-3 py-2 font-semibold text-slate-700 hover:bg-slate-100 transition">Log in</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'register' %}" class="block rounded-lg px-3 py-2 font-semibold bg-red-600 text-white hover:bg-red-700 transition">Create account</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
         </nav>
         
 
-        <main>
+        <main class="flex-1">
             {% block content %}
             {% endblock %}
         </main>
 
-        <footer class="bg-red-500 border-t border-gray-300">
-            <div class="max-w-6xl mx-auto py-8 px-6 xl:px-0 flex flex-col md:flex-row justify-between items-center">
-                <div class="footer-left mb-6 md:mb-0 text-center md:text-left">
-                    <h2 class="mb-3 uppercase text-lg font-semibold text-white">About us</h2>
-                    <p class="text-white text-sm">Local shop serving your needs with quality and care.</p>
+        <footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50 mt-16">
+            <!-- Main Footer Content -->
+            <div class="app-shell py-12 px-6 xl:px-0">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                    <!-- Brand Section -->
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-red-600 to-red-500 text-white font-extrabold">T</span>
+                            <span class="text-white font-extrabold tracking-tight text-lg">TheShop</span>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">Your neighborhood store for quality products and great prices. Shop with us today!</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="{% url 'home' %}" class="text-slate-400 hover:text-white transition text-sm">Home</a></li>
+                            <li><a href="{% url 'products' %}" class="text-slate-400 hover:text-white transition text-sm">Shop</a></li>
+                            <li><a href="{% url 'products' %}" class="text-slate-400 hover:text-white transition text-sm">About</a></li>
+                            <li><a href="{% url 'products' %}" class="text-slate-400 hover:text-white transition text-sm">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Categories -->
+                    <div>
+                        <h3 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Categories</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-slate-400 hover:text-white transition text-sm">Fresh Produce</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-white transition text-sm">Snacks</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-white transition text-sm">Beverages</a></li>
+                            <li><a href="#" class="text-slate-400 hover:text-white transition text-sm">Household</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact & Social -->
+                    <div>
+                        <h3 class="font-bold text-white mb-4 text-sm uppercase tracking-wider">Follow Us</h3>
+                        <ul class="flex gap-4 mb-6">
+                            <li>
+                                <a href="#" class="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-slate-700 text-slate-300 hover:bg-red-600 hover:text-white transition">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333H16V2.169c-.585-.089-1.308-.169-2.227-.169-2.753 0-4.773 1.653-4.773 4.692V8z"/></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-slate-700 text-slate-300 hover:bg-red-600 hover:text-white transition">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9 0 11-4s1-8.75 0-9.7a9.462 9.462 0 00-1.3.5z"/></svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-slate-700 text-slate-300 hover:bg-red-600 hover:text-white transition">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v10M7 12h10"/></svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="text-slate-400 text-sm">📞 +1 (555) 123-4567</p>
+                        <p class="text-slate-400 text-sm">📧 hello@theshop.com</p>
+                    </div>
                 </div>
-                <div class="footer-right text-center md:text-right">
-                    <h2 class="mb-3 uppercase text-lg font-semibold text-white">Social links</h2>
-                    <ul class="flex space-x-6 justify-center md:justify-end">
-                        <li>
-                            <a href="#" class="text-white hover:text-gray-200 transition">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white hover:text-gray-200 transition">Twitter</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white hover:text-gray-200 transition">Instagram</a>
-                        </li>
-                    </ul>
+
+                <!-- Divider -->
+                <div class="border-t border-slate-700 my-8"></div>
+
+                <!-- Footer Bottom -->
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-sm">
+                    <p>&copy; 2024 TheShop. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition">Cookie Settings</a>
+                    </div>
                 </div>
             </div>
         </footer>
 
         <script src="https://unpkg.com/hyperscript@2.2.0/dist/hyperscript.js"></script>
+        <script>
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', function () {
+                    const isOpen = !mobileMenu.classList.contains('hidden');
+                    mobileMenu.classList.toggle('hidden');
+                    menuButton.setAttribute('aria-expanded', String(!isOpen));
+                });
+            }
+        </script>
 
         
         {% block scripts %}

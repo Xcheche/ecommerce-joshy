@@ -1,10 +1,21 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
+"""Account domain models.
+
+Feature map:
+- `CustomUser`: main auth model (email-first login).
+- `UserProfile`: one-to-one extension for extra dashboard/profile fields.
+"""
 
 
 class CustomUser(AbstractUser):
+    """Project-specific user model.
+
+    Key behavior:
+    - Uses email as login identifier (`USERNAME_FIELD = "email"`).
+    - Keeps username optional for compatibility and display needs.
+    """
     username = models.CharField(max_length=50, blank=True, null=True, unique=True)
     email = models.EmailField("email address", unique=True)
     first_name = models.CharField(max_length=30, blank=True, null=True)
@@ -29,6 +40,8 @@ class CustomUser(AbstractUser):
 
 #-----------------Dashboard User Profile Model-----------------
 class UserProfile(models.Model):
+    """Extra per-user profile data used by dashboard/edit profile pages."""
+
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     address = models.CharField(max_length=100, blank=True, null=True)
     

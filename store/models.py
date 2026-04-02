@@ -4,9 +4,17 @@ from django.core.files import File
 from io import BytesIO
 from PIL import Image
 from django.urls import reverse
-# Create your models here.
+
+"""Store/catalog domain models.
+
+Feature map:
+- `Category`: groups products and powers category filtering URLs.
+- `Product`: sellable item with price, stock, availability, and image.
+"""
 
 class Category(models.Model):
+    """Product category used in filters, navigation, and category pages."""
+
     name = models.CharField(max_length=255)
     slug = models.SlugField()
 
@@ -21,6 +29,8 @@ class Category(models.Model):
         return reverse ('list_category', args=[self.slug])
     
 class Product(models.Model):
+    """Store product entity rendered on home, listing, search, and detail pages."""
+
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)

@@ -1,4 +1,11 @@
-# accounts/views.py
+"""Views for account lifecycle features.
+
+Feature map:
+- Register with email activation.
+- Activate account from email link.
+- Login/Logout.
+- Profile dashboard and profile editing.
+"""
 
 
 from django.shortcuts import render, redirect
@@ -29,6 +36,16 @@ User = get_user_model()
 #--------------------- Registration view --------------------
 @transaction.atomic
 def register(request):
+    """Handle user registration and send activation email.
+
+    Flow:
+    1. Validate registration form.
+    2. Create inactive user.
+    3. Build activation link context (`uid` + token).
+    4. Send activation email after DB commit.
+    5. Redirect with user feedback message.
+    """
+
     form = RegisterForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
@@ -75,6 +92,16 @@ def register(request):
 
 
 def activate(request, uidb64, token):
+    """Activate account from signed email link.
+
+    Flow:
+    1. Decode user id from URL-safe base64.
+    2. Validate token.
+    3. Activate user if valid.
+    4. Ensure profile exists.
+    5. Send welcome emails and log user in.
+    """
+
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
     except Exception:
@@ -121,6 +148,8 @@ def activate(request, uidb64, token):
 """ Authentication with email or username is handled by the custom auth backend."""
 
 def login_view(request):
+    """Authenticate user via email-or-username backend and start session."""
+
     if request.method == "POST":
         ident = (
             request.POST.get("username_or_email") or request.POST.get("username") or ""
@@ -142,6 +171,8 @@ def login_view(request):
 #-------------------------Logout---------------------------
 
 def logout_view(request):
+    """End user session and return to home page."""
+
     auth_logout(request)
     messages.success(request, "You have been logged out.")
     return redirect("home")
@@ -151,12 +182,20 @@ def logout_view(request):
 #-------------------------------Dashboard/Profile------------------------------
 
 def profile_view(request):
-    """ View user profile. """
+    """Render account dashboard/profile page."""
+
     return render(request, "accounts/profile.html")
 
 
 #-------------------------------Edit Profile------------------------------
 def edit_profile_view(request):
+    """Edit account + profile data in one screen.
+
+    Uses two forms:
+    - `CustomUserUpdateForm` for core account fields.
+    - `ProfileUpdateForm` for extended profile fields.
+    """
+
     # make sure a profile exists (signal should do this, but be defensive)
     profile, _ = UserProfile.objects.get_or_create(user=request.user)
 
